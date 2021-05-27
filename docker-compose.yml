@@ -1,0 +1,13 @@
+version: '3'
+services:
+  aws-cli:
+    container_name: aws-cli
+    build: 
+      context: ./docker/aws-cli
+      args: 
+        - AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID
+        - AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY
+    working_dir: '/usr/src/app'
+    tty: true
+    volumes:
+      - .:/usr/src/app
